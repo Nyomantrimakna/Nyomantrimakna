@@ -1,18 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Outlet, Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
-const App = () => {
+const FakultasDetail = () => {
 	const [data, setData] = useState([]);
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState('false');
 	const [error, setError] = useState(false);
+	const {name} = useParams();
 
 	useEffect(() => {
-		async function fetchData() {
+		async function dataProdi() {
 			setLoading(true);
 			setError(false);
 			try {
-				const result = await axios.get('http://localhost:3004/fakultas');
+				const result = await axios.get('http://localhost:3004/' + name);
 				setData(result.data);
 			}
 			catch (err) {
@@ -20,22 +21,21 @@ const App = () => {
 			}
 			setLoading(false);
 		}
-		fetchData();
+		dataProdi();
 	}, []);
 
-	return (
+	return(
 		<div>
 			{loading && <p>Loading...</p>}
 			{error && <p>Error</p>}
 			{data.map((item, index) => (
 				<div key={index}>
-					<h3>{item.title}</h3>
-					<Link to={`/fakultas/${item.to}`}>{item.author}</Link>
+					<h1>{item.title}</h1>
+					<p>{item.deskripsi}</p>
 				</div>
 			))}
-			<Outlet />
 		</div>
 	)
 }
 
-export default App;
+export default FakultasDetail;
