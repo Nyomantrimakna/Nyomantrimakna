@@ -1,0 +1,31 @@
+{
+  "fakultas": [
+    { 
+      "to": "teknik", 
+      "title": "Teknik",
+      "author": "go to" 
+    },
+    { 
+      "to": "kedokteran", 
+      "title": "Kedokteran",
+      "author": "go to" 
+    },
+    { 
+      "to": "hukum", 
+      "title": "Hukum",
+      "author": "go to" 
+    }
+  ],
+  "elektro": [
+    {
+      "title": "fakultas Teknik",
+      "deskripsi": "ini adalah fakultas teknik"
+    }
+  ],
+  "arsitek": [
+    {
+      "title": "fakultas kedokteran",
+      "deskripsi": "ini adalah fakultas kedokteran"
+    }
+  ]
+}
